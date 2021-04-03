@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: |
-        docker build -t xiaodi93/php --build-arg PHP_VERSION=php:7.4-fpm-alpine --build-arg CONTAINER_PACKAGE_URL=mirrors.aliyun.com --build-arg TZ=Asia/Shanghai --build-arg PHP_EXTENSIONS=pdo_mysql,mysqli,mbstring,gd,curl,redis,zip .
-        docker build -t xiaodi93/php:7.3 --build-arg PHP_VERSION=php:7.3-fpm-alpine --build-arg CONTAINER_PACKAGE_URL=mirrors.aliyun.com --build-arg TZ=Asia/Shanghai --build-arg PHP_EXTENSIONS=pdo_mysql,mysqli,mbstring,gd,curl,redis,zip .
+        docker build -t xiaodi93/php --build-arg PHP_VERSION=php:7.4-fpm-alpine --build-arg CONTAINER_PACKAGE_URL=mirrors.aliyun.com --build-arg TZ=Asia/Shanghai --build-arg PHP_EXTENSIONS=pdo_mysql,mysqli,mbstring,gd,curl,redis,zip,bcmath .
+        docker build -t xiaodi93/php:7.3 --build-arg PHP_VERSION=php:7.3-fpm-alpine --build-arg CONTAINER_PACKAGE_URL=mirrors.aliyun.com --build-arg TZ=Asia/Shanghai --build-arg PHP_EXTENSIONS=pdo_mysql,mysqli,mbstring,gd,curl,redis,zip,bcmath .
     - name: Log into registry
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
     - name: Push Image
